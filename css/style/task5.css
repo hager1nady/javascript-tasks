@@ -3,10 +3,10 @@ table {
     border-spacing: 0;
     text-align: center;
 }
-
+/* 
 .respovnsive-table {
     overflow-x: auto;
-}
+} */
 
 thead th {
     background-color: #eeeeeebb;
@@ -46,11 +46,6 @@ button {
     padding: 6px 10px !important;
 
 }
-
-/* .container div {
-     min-width: 1000px;
-
- } */
 
 @media(max-width:767px) {
     .filter {
