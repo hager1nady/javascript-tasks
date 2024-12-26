@@ -3,10 +3,10 @@ table {
     border-spacing: 0;
     text-align: center;
 }
-/* 
+
 .respovnsive-table {
-    overflow-x: auto;
-} */
+    overflow-x: hidden;
+}
 
 thead th {
     background-color: #eeeeeebb;
