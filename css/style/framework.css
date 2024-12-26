@@ -86,9 +86,14 @@
     width: fit-content;
 }
 
+.w-1000 {
+    width: 1000px;
+}
+
 .h-full {
     height: 100%;
 }
+
 
 /* End width */
 
