@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task6.css">
+    <link rel="stylesheet" href="css/style/task10.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
             <h3 class="p-relative txt-c">Js-tasks</h3>
             <ul>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
                         <i class="fa-regular fa-chart-bar fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task1</span>
                     </a>
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task10.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task10.html">
                         <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
@@ -89,61 +89,109 @@
             </ul>
         </div>
         <div class="container">
-            <div>
-                <div>
-                    <label for="productName">productName :</label>
-                    <input type="text" name="product" id="productName" placeholder="productName">
-                </div>
-                <div>
-                    <label for="productPrice">productPrice :</label>
-                    <input type="text" name="price" id="productPrice" placeholder="productPrice">
-                </div>
-                <button class="btn-shape"
-                    onclick="displayProducts(document.getElementById('productName').value)">addProduct</button>
-            </div>
+            <!-- <form action="">
+
+            </form> -->
             <table>
                 <thead>
-                    <th>productName</th>
-                    <th>productPrice</th>
+                    <th>UserName</th>
+                    <th>UserAge</th>
+                    <th>UserGmail</th>
+                    <th>Remove</th>
+                    <th>Update</th>
                 </thead>
-                <tbody id="product">
+                <tbody id="user">
 
                 </tbody>
             </table>
+            <div class="mt-20">
+                <label for="name" class="d-block mb-5">UserName:</label>
+                <input type="text" id="name" class="mb-10 p-10 w-full" placeholder="Enter UserName">
+            </div>
+            <div>
+                <label for="age" class="d-block mb-5">UserAge:</label>
+                <input type="number" id="age" class="mb-10 p-10 w-full" placeholder="Enter UserAge">
+            </div>
+            <div>
+                <label for="gmail" class="d-block mb-5">UserGmail:</label>
+                <input type="text" id="gmail" class="mb-10 p-10 w-full" placeholder="Enter UserGmail">
+            </div>
+
+            <input type="submit" class="btn-shape w-full" onclick="addUser()" value="addUser">
+
         </div>
     </div>
     <script>
-        // أنشئ Function اسمها calculateTotal، تقبل أسعار منتجات كـ Arguments، وترجع إجمالي السعر بعد إضافة 14% ضريبة.
-        function calculateTotal(...prices) {
-            let total = 0;
-            for (var i = 0; i < prices.length; i++) {
-                total += prices[i]
-            }
-            return total * 1.14.toFixed(1);
-        }
-        console.log(calculateTotal(1, 2, 3, 4));
+        let userData = [
+            { name: "hager", age: 23, gmail: "hajrnady24@gmail.com" },
+            { name: "mostafa", age: 29, gmail: "mostafa23@gmail.com" },
+            { name: "ali", age: 24, gmail: "ali98@gmail.com" },
+            { name: "ahmed", age: 27, gmail: "ahmed27@gmail.com" },
+            { name: "mona", age: 22, gmail: "mona22@gmail.com" },
+            { name: "maryam", age: 33, gmail: "maryam33@gmail.com" },
+        ]
 
-        //function بتستقبل اسم منتج وسعرو وتعرض رساله اسم المنتج والسعر بعد الضريبه
-        function products(Name, Price) {
-            let priceAfterTask = (Price * 1.14).toFixed(2);
-            console.log(`Product Name : ${Name} , Product Price After Tax  : ${priceAfterTask}`);
-        }
-        products('Iphone', 1200)
-        // صفحة ويب بتسمح للمستخدم ادخال اسماء منتجات واسعارها وتعرضهم
-        let productList = '';
-        function displayProducts(...products) {
-            for (var i = 0; i < products.length; i++) {
-                console.log(products[i]);
-                productList += `
-                <tr>
-                    <td>${products[i]}</td>
-                    <td>${document.getElementById('productPrice').value}</td>
-                </tr>
-                `
+        let user = document.getElementById('user')
+        function display() {
+            let users = ''
+            for (var i = 0; i < userData.length; i++) {
+                users += `
+                    <tr>
+                        <td>${userData[i].name}</td>
+                        <td>${userData[i].age}</td>
+                        <td>${userData[i].gmail}</td>
+                        <td><button name="remove" class="btn-shape" onclick="removeUser()">Remove</button></td>
+                        <td><button name="update" class="btn-shape" onclick="UpdateUser()">Update</button></td>
+
+                    </tr>
+            `
             }
-            document.getElementById('product').innerHTML = productList
+            document.getElementById('user').innerHTML = users
+        }
+        display()
+
+        function removeUser() {
+            const taskItem = event.target.closest('tr');
+            const taskText = taskItem.querySelector('td').textContent.trim();
+            const index = userData.findIndex(user => user.name.toLowerCase() === taskText.toLowerCase());
+            if (index > -1) {
+                userData.splice(index, 1);
+            }
+            display()
         }
 
+
+        let userName = document.getElementById('name')
+        let userAge = document.getElementById('age')
+        let userGmail = document.getElementById('gmail')
+
+        function UpdateUser() {
+            const taskItem = event.target.closest('tr');
+            const taskText = taskItem.querySelector('td').textContent.trim();
+            const index = userData.findIndex(user => user.name.toLowerCase() === taskText.toLowerCase());
+            if (index > -1) {
+                console.log(userData[index].name);
+                userData[index].age = userAge.value.trim()
+                userData[index].gmail = userGmail.value.trim()
+                if (userName && userName.value.trim() !== "") {
+                    userData[index].name = userName.value.trim()
+                }
+                if (userAge && userAge.value.trim() !== "") {
+                    userData[index].age = userAge.value.trim()
+                }
+                if (userGmail && userGmail.value.trim() !== "") {
+                    userData[index].gmail = userGmail.value.trim()
+                }
+            }
+            display()
+        }
+
+
+        function addUser() {
+            userData.push({ name: userName.value, age: userAge.value, gmail: userGmail.value })
+            display()
+        }
     </script>
 </body>
+
 </html>
