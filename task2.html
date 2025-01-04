@@ -22,7 +22,6 @@
 </head>
 
 <body>
-
     <div class="page d-flex">
         <div class="sidebar bg-white p-20 p-relative">
             <h3 class="p-relative txt-c">Js-tasks</h3>
@@ -70,9 +69,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
                         <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task8</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task9</span>
                     </a>
                 </li>
             </ul>
@@ -86,7 +91,6 @@
                 <label for="number_tow">Number Tow :</label>
                 <input type="text" name="number_tow" id="number_tow">
             </div>
-
             <input type="submit" value="Addition" onclick="addNumbers()">
             <input type="submit" value="Subtraction" onclick="subNumbers()">
             <input type="submit" value="Division" onclick="divisionNumbers()">
@@ -108,7 +112,6 @@
                 document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
             }
         }
-
         // Subtraction Numbers 
         function subNumbers() {
             const numberOne = Number(document.getElementById('number_one').value);
@@ -121,7 +124,6 @@
                 document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
             }
         }
-
         // Division Numbers
         function divisionNumbers() {
             const numberOne = Number(document.getElementById('number_one').value);
@@ -134,7 +136,6 @@
                 document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
             }
         }
-
         // multiblication numbers 
         function mulNumbers() {
             const numberOne = Number(document.getElementById('number_one').value);

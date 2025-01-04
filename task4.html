@@ -65,15 +65,21 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="files.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task7</span>
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task8</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task9</span>
                     </a>
                 </li>
             </ul>
@@ -92,11 +98,9 @@
                 <ul id="list">
                 </ul>
             </div>
-
         </div>
-
     </div>
-
+    
     <script>
         let arrList = ['Organize the room', 'Exercise for 30 minutes', 'Read a chapter from a book', 'Create a shopping list', 'Go for a walk', 'Clean your desk or workspace', 'Try a new recipe', 'الخروج في نزهة']
         // add to list
@@ -105,7 +109,6 @@
             arrList.push(list)
             displayTask()
         }
-
         // delete Task
         function deleteTask() {
             const taskItem = event.target.closest('li');
@@ -117,18 +120,15 @@
             displayTask();
 
         }
-
         // sorting task
         function sortTask() {
             arrList.sort()
             displayTask()
         }
-
         // sorting task
         function reSortTask() {
             displayTask()
         }
-
         // display list
         function displayTask() {
             let listOfTasks = '';
@@ -140,12 +140,6 @@
             document.getElementById('list').innerHTML = listOfTasks
         }
         displayTask()
-
-
-
-
-
-
     </script>
 </body>
 

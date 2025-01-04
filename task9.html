@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1-js</title>
+    <link rel="styles+heet" href="css/helpers/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/helpers/reset.css">
+    <link rel="stylesheet" href="css/helpers/global.css">
+    <link rel="stylesheet" href="css/helpers/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style/framework.css">
+    <link rel="stylesheet" href="css/style/sidebar-section.css">
+    <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
+    <link rel="stylesheet" href="css/style/head-section.css">
+    <link rel="stylesheet" href="css/style/task9.css">
+</head>
+
+<body>
+    <div class="page d-flex">
+        <div class="sidebar bg-white p-20 p-relative">
+            <h3 class="p-relative txt-c">Js-tasks</h3>
+            <ul>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task1</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
+                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task2</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
+                        <i class="fa-solid fa-user fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task3</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
+                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task4</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
+                        <i class="fa-brands fa-discourse fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task5</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
+                        <i class="fa-solid fa-user-group fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task6</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
+                        <i class="fa-solid fa-file fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task7</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task8</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task9</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+
+        </div>
+    </div>
+
+    <script>
+        let productslist = [
+            { name: "iphone", price: 30000, description: "good" },
+            { name: "samsung", price: 1000, description: "good" },
+            { name: "realme", price: 8000, description: "good" },
+            { name: "iphone13", price: 30000, description: "good" },
+            { name: "samsungA53", price: 1000, description: "good" },
+            { name: "realmeC53", price: 8000, description: "good" },
+        ]
+        function displayProducts() {
+            const existingTable = document.querySelector(".container");
+            if (existingTable) {
+                existingTable.remove();
+            }
+            // creaye table + thead + th
+            let products = document.createElement("table")
+            let tHead = document.createElement("thead")
+            let thName = document.createElement("th")
+            let thPrice = document.createElement("th")
+            let thDesc = document.createElement("th")
+            let thRemove = document.createElement("th")
+            let thEdit = document.createElement("th")
+            let inputs = document.createElement("div")
+            let inputContainer = document.createElement("div")
+            inputContainer.setAttribute("id", "editInputsContainer");
+
+
+            // create inputs
+            let inputName = document.createElement("input")
+            let labelName = document.createElement("label")
+            let labelNameText = document.createTextNode("product name :")
+            let inputPrice = document.createElement("input")
+            let labelPrice = document.createElement("label")
+            let labePeicelText = document.createTextNode("product price :")
+            let inputDesc = document.createElement("input")
+            let labelDesc = document.createElement("label")
+            let labeDescText = document.createTextNode("product Description :")
+
+
+            labelName.appendChild(labelNameText)
+            labelPrice.appendChild(labePeicelText)
+            labelDesc.appendChild(labeDescText)
+            inputContainer.appendChild(labelName)
+            inputContainer.appendChild(inputName)
+            inputContainer.appendChild(labelPrice)
+            inputContainer.appendChild(inputPrice)
+            inputContainer.appendChild(labelDesc)
+            inputContainer.appendChild(inputDesc)
+
+            inputName.setAttribute("id", "productName")
+            labelName.setAttribute("for", "productName")
+            labelPrice.setAttribute("for", "productPrice")
+            inputPrice.setAttribute("id", "productPrice")
+            inputDesc.setAttribute("id", "productDesc")
+            labelDesc.setAttribute("for", "productDesc")
+            inputs.appendChild(inputContainer)
+
+            inputName.className = "d-block"
+            labelName.className = "d-block"
+            inputPrice.className = "d-block"
+            labelPrice.className = "d-block"
+            inputDesc.className = "d-block"
+
+            // add class to table
+            products.className = "container"
+            // add text to thead th
+            let thNameText = document.createTextNode("Product Name")
+            let thPriceText = document.createTextNode("Product Price")
+            let thDescText = document.createTextNode("Product Description")
+            let thRemoveText = document.createTextNode("Product Remove")
+            let thEditText = document.createTextNode("Product Edit")
+            for (var i = 0; i < productslist.length; i++) {
+                // creaye table + tbody + tr + td
+                let tbody = document.createElement("tbody")
+                let tr = document.createElement("tr")
+                let tdName = document.createElement("td")
+                let tdPrice = document.createElement("td")
+                let tdDesc = document.createElement("td")
+                let tdRemove = document.createElement("td")
+                let tdEdit = document.createElement("td")
+                // add text to tbody tr td
+                let tdTextName = document.createTextNode(`${productslist[i].name}`)
+                let tdTextPrice = document.createTextNode(`${productslist[i].price}`)
+                let tdTextDescription = document.createTextNode(`${productslist[i].description}`)
+                let tdButton = document.createElement("button")
+                let tdButtonEdit = document.createElement("button")
+                tdEdit.className = "update"
+                // create text button
+                let buttonText = document.createTextNode("Remove")
+                let EditText = document.createTextNode("Edit")
+                tdButton.appendChild(buttonText)
+                tdButtonEdit.appendChild(EditText)
+                // add class btn-shape to button
+                tdButton.className = "btn-shape"
+                tdButtonEdit.className = "btn-shape"
+                // add attribute to utton
+                tdButton.setAttribute("onclick", "removeProduct()")
+                tdButtonEdit.setAttribute("onclick", "editProduct()")
+                // append thead to table
+                products.appendChild(tHead)
+                // append th to thead
+                tHead.appendChild(thName)
+                tHead.appendChild(thPrice)
+                tHead.appendChild(thDesc)
+                tHead.appendChild(thRemove)
+                tHead.appendChild(thEdit)
+                // append thNameText to th
+                thName.appendChild(thNameText)
+                thPrice.appendChild(thPriceText)
+                thDesc.appendChild(thDescText)
+                thRemove.appendChild(thRemoveText)
+                thEdit.appendChild(thEditText)
+                // append tbody to table
+                products.appendChild(tbody)
+                // append tr to tbody
+                tbody.appendChild(tr)
+                // add id to tr
+                tr.setAttribute("id", "product")
+                // append td to tr
+                tr.appendChild(tdName)
+                tr.appendChild(tdPrice)
+                tr.appendChild(tdDesc)
+                tr.appendChild(tdRemove)
+                tr.appendChild(tdEdit)
+                // append text to td
+                tdName.appendChild(tdTextName)
+                tdPrice.appendChild(tdTextPrice)
+                tdDesc.appendChild(tdTextDescription)
+                tdRemove.appendChild(tdButton)
+                tdEdit.appendChild(tdButtonEdit)
+            }
+            const pageElement = document.querySelector('.page .content');
+            pageElement.appendChild(products);
+            const inputElements = document.querySelector('.page .content')
+            inputElements.appendChild(inputs)
+        }
+        displayProducts()
+
+        function removeProduct() {
+            let productsArray = ''
+            const taskItem = event.target.closest('tr');
+            const taskText = taskItem.querySelector('td').textContent.trim();
+            const index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase());
+            if (index > -1) {
+                productslist.splice(index, 1);
+            }
+            displayProducts()
+        }
+
+        function editProduct() {
+            let productName = document.getElementById('productName')
+            let productPrice = document.getElementById('productPrice')
+            let productDescription = document.getElementById('productDesc')
+            let existingInputs = document.getElementById("editInputsContainer");
+            if (existingInputs) {
+                existingInputs.remove();
+            }
+            const taskItem = event.target.closest('tr');
+            const taskText = taskItem.querySelector('td').textContent.trim();
+            const index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase());
+
+            if (index > -1) {
+                if (productName && productName.value.trim() !== "") {
+                    productslist[index].name = productName.value.trim();
+                }
+                if (productPrice && productPrice.value.trim() !== "") {
+                    productslist[index].price = parseFloat(productPrice.value.trim());
+                }
+                if (productDescription && productDescription.value.trim() !== "") {
+                    productslist[index].description = productDescription.value.trim();
+                }
+                console.log(productslist);
+            }
+            displayProducts()
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

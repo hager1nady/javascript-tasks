@@ -1,0 +1,90 @@
+.container {
+    /* width: 60%; */
+    margin: 50px auto;
+}
+
+@media(max-width:767px) {
+    .container {
+        width: 100%;
+    }
+
+
+}
+
+table {
+    border-spacing: 0;
+    text-align: center;
+    /* width: 100%; */
+}
+
+thead th {
+    background-color: #eeeeeebb;
+    font-weight: bold;
+    padding: 15px;
+}
+
+
+tbody td {
+    border: 1px solid #eee;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    padding: 15px;
+}
+
+tbody tr:hover td {
+    background-color: #fafafa;
+}
+
+button {
+    border: none;
+    border: 1px solid red !important;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    background-color: red !important;
+}
+
+button:hover {
+    background-color: rgba(255, 0, 0, 0.588) !important;
+    color: white;
+    cursor: pointer;
+}
+
+.update button {
+    background-color: green !important;
+    border: none !important;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.update button:hover {
+    background-color: rgba(0, 128, 0, 0.529) !important;
+    border: none !important;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 20px;
+}
+
+.content {
+    margin: 50px auto;
+}
+
+.content #editInputsContainer {
+    width: 90%;
+    margin: auto;
+}

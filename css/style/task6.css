@@ -1,0 +1,76 @@
+.container {
+    width: 60%;
+    margin: 50px auto;
+}
+
+@media(max-width:767px) {
+    .container {
+        width: 90%;
+    }
+
+    .container table {
+        width: 100%;
+    }
+}
+
+.container table {
+    width: 100%;
+}
+
+.container div {
+    margin-bottom: 20px;
+    color: #777777;
+    font-family: sans-serif;
+}
+
+.container>div label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.container>div input {
+    width: 100%;
+    padding: 8px 10px;
+    outline: none;
+    border: 1px solid #eee;
+    background-color: #eeeeee1f;
+    transition: 0.3s;
+    border: 1px solid rgba(100, 148, 237, 0.258);
+}
+
+.container>div input:hover {
+    background-color: #eee;
+}
+
+table {
+    border-spacing: 0;
+    text-align: center;
+}
+
+.respovnsive-table {
+    overflow-x: hidden;
+}
+
+thead th {
+    background-color: #eeeeeebb;
+    font-weight: bold;
+    padding: 15px;
+}
+
+table td {
+    padding: 15px;
+}
+
+tbody td {
+    border: 1px solid #eee;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+tbody tr:hover td {
+    background-color: #fafafa;
+}
+

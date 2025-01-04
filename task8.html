@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task1-js</title>
+    <link rel="styles+heet" href="css/helpers/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/helpers/reset.css">
+    <link rel="stylesheet" href="css/helpers/global.css">
+    <link rel="stylesheet" href="css/helpers/variables.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style/framework.css">
+    <link rel="stylesheet" href="css/style/sidebar-section.css">
+    <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
+    <link rel="stylesheet" href="css/style/head-section.css">
+    <link rel="stylesheet" href="css/style/task8.css">
+</head>
+
+<body>
+    <div class="page d-flex">
+        <div class="sidebar bg-white p-20 p-relative">
+            <h3 class="p-relative txt-c">Js-tasks</h3>
+            <ul>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task1</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
+                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task2</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
+                        <i class="fa-solid fa-user fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task3</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
+                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task4</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
+                        <i class="fa-brands fa-discourse fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task5</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
+                        <i class="fa-solid fa-user-group fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task6</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
+                        <i class="fa-solid fa-file fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task7</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task8</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task9</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <table>
+                <thead>
+                    <th>BookName</th>
+                    <th>BookAuher</th>
+                    <th>BookPages</th>
+                </thead>
+                <tbody id="lib">
+
+                </tbody>
+            </table>
+            <input class="d-block mb-10 w-full p-10 mt-20" type="text" id="section-name"
+                placeholder="please enter your section name">
+            <input class="d-block mb-10 w-full p-10" type="text" id="new-section-name"
+                placeholder="please enter your book name">
+            <input class="d-block mb-10 w-full p-10" type="text" id="new-section-auther"
+                placeholder="please enter your book auther">
+            <input class="d-block mb-10 w-full p-10" type="text" id="new-section-pages"
+                placeholder="please enter your book pages">
+            <button class="mb-10 w-full p-10" onclick="AddNewSection()">Add New Section</button>
+        </div>
+        <script>
+            let liberary = {
+                sections: {
+                    sections_1: [
+                        { bookName: "book1", author: "ahmed", pages_conunt: 20 },
+                        { bookName: "book2", author: "mohammed", pages_conunt: 30 },
+                        { bookName: "book3", author: "ali", pages_conunt: 20 },
+                    ],
+                    sections_2: [
+                        { bookName: "book4", author: "mona", pages_conunt: 10 },
+                        { bookName: "book5", author: "mahmoud", pages_conunt: 40 },
+                        { bookName: "book6", author: "mayada", pages_conunt: 90 },
+                    ],
+                    sections_3: [
+                        { bookName: "book7", author: "ragap", pages_conunt: 40 },
+                        { bookName: "book8", author: "amr", pages_conunt: 50 },
+                        { bookName: "book9", author: "lora", pages_conunt: 60 },
+                    ],
+                    sections_4: [
+                        { bookName: "book10", author: "ragap", pages_conunt: 40 },
+                        { bookName: "book11", author: "amr", pages_conunt: 50 },
+                        { bookName: "book12", author: "lora", pages_conunt: 60 },
+                    ]
+                }
+            }
+            let totalPgeas = Object.values(liberary.sections).reduce((total, section) => {
+                return total + section.reduce((sectionTotal, book) => {
+                    return sectionTotal + book.pages_conunt
+                }, 0)
+            }, 0)
+            console.log(totalPgeas);
+            ////////////////////////////////////////////
+            function displayLiberary() {
+                let book = '';
+                Object.values(liberary.sections).forEach(element => {
+                    return element.map((ele) => {
+                        book += `
+                     <tr>
+                        <td>${ele.bookName}</td>
+                        <td>${ele.author}</td>
+                        <td>${ele.pages_conunt}</td>
+                    </tr>  
+                    `
+                    })
+                });
+                document.getElementById('lib').innerHTML = book
+            }
+            displayLiberary()
+            function AddNewSection() {
+                let sectionName = document.getElementById('section-name').value;
+                let newSectionName = document.getElementById('new-section-name').value
+                let newSectionAuther = document.getElementById('new-section-auther').value
+                let newSectionPages = document.getElementById('new-section-pages').value
+                // if section founded
+                if (liberary.sections[sectionName]) {
+                    liberary.sections[sectionName].push({
+                        bookName: newSectionName,
+                        author: newSectionAuther,
+                        pages_conunt: newSectionPages,
+                    });
+                }
+                // if section nit founded create new section and add to book
+                else {
+                    liberary.sections[sectionName] = [
+                        {
+                            bookName: newSectionName,
+                            author: newSectionAuther,
+                            pages_conunt: newSectionPages,
+                        },
+                    ];
+                }
+                displayLiberary()
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+
+</html>

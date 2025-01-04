@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task5.css">
+    <link rel="stylesheet" href="css/style/task7.css">
 </head>
 
 <body>
@@ -28,55 +28,55 @@
             <ul>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task1</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-gear fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task2</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-user fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task3</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-diagram-project fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task4</span>
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
+                        <i class="fa-brands fa-discourse fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task5</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-user-group fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task6</span>
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
+                        <i class="fa-solid fa-file fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task7</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task8</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task9</span>
                     </a>
                 </li>
@@ -87,67 +87,58 @@
                 <thead>
                     <th>ProductName</th>
                     <th>ProductPrice</th>
+                    <th>ProductCatgory</th>
+                    <th>FinalPrice</th>
                 </thead>
-                <tbody id="product">
+                <tbody id="products">
+
                 </tbody>
             </table>
-            <div class="mt-20 filter d-flex g-10">
-                <input id="price" type="text" placeholder="Please Enter Your Price">
-                <button class="btn-shape" id="" onclick="filterLess()">Less</button>
-            </div>
-            <div class="mt-10 filter d-flex g-10">
-                <input id="fLetter" type="text" placeholder="Search By First Letter">
-                <button class="btn-shape" id="" onclick="search()">firstLetter</button>
+            <div class="mt-40">
+                <input id="getPrice" type="text" class="d-block mt-10 w-full p-10 b-none mb-10"
+                    placeholder="Enter Your Product Price Search...">
+                <button class="btn-shape w-full mt-10" onclick="lessProduct()">Search By Product Price</button>
             </div>
         </div>
     </div>
     <script>
-        let products = ["Iphone", "realmeC53", "OppoF19", "SamsungS22", "Infinix", "Nokia", "Lava", "Vivo"];
-        let prices = [1200, 1400, 200, 400, 30000, 5000, 60000, 20000, 4000];
-        let productId = document.getElementById('product')
-        let productsBox = '';
+        let productsList = [
+            { productName: "iphone", productPrice: 29000, productCategory: "mobile" },
+            { productName: "samsung", productPrice: 39000, productCategory: "mobile" },
+            { productName: "realme", productPrice: 4000, productCategory: "mobile" },
+            { productName: "redmi", productPrice: 9000, productCategory: "mobile" },
+            { productName: "oppo", productPrice: 7000, productCategory: "mobile" },
+        ]
         function displayProducts() {
-            for (var i = 0; i < products.length; i++) {
-                productsBox += `
-                        <tr>
-                            <td>${products[i]}</td>
-                            <td>${prices[i]}</td>
-                        </tr>
-            `
+            let products = '';
+            let product = productsList.map((ele) => {
+                let finalPrice = (ele.productPrice * 0.14).toFixed(2);
+                products += `
+                    <tr>
+                        <td>${ele.productName}</td>
+                        <td>${ele.productPrice}</td>
+                        <td>${ele.productPrice}</td>
+                        <td>${finalPrice}</td>
+                    </tr>
+             `
             }
-            productId.innerHTML = productsBox
+            )
+            document.getElementById('products').innerHTML = products
         }
-        displayProducts()
-        function filterLess() {
-            productsBox = '';
-            let priceId = document.getElementById('price').value
-            for (var i = 0; i < products.length; i++) {
-                if (prices[i] <= priceId) {
-                    productsBox += `
-                        <tr>
-                            <td>${products[i]}</td>
-                            <td>${prices[i]}</td>
-                        </tr>
+        displayProducts();
+        // Search By Product Price
+        function lessProduct() {
+            let products = '';
+            let product = productsList.filter((ele) => ele.productPrice <= document.getElementById('getPrice').value).map((ele) => {
+                return products += `
+                    <tr>
+                        <td>${ele.productName}</td>
+                        <td>${ele.productPrice}</td>
+                        <td>${ele.productPrice}</td>
+                    </tr>
             `
-                }
-            }
-            productId.innerHTML = productsBox
-        }
-        function search() {
-            productsBox = '';
-            let letterId = document.getElementById('fLetter').value
-            for (var i = 0; i < products.length; i++) {
-                if (products[i].charAt(0).toLowerCase() === letterId.toLowerCase()) {
-                    console.log('true');
-                    productsBox += `
-                        <tr>
-                            <td>${products[i]}</td>
-                            <td>${prices[i]}</td>
-                        </tr>
-            `
-                }
-            }
-            productId.innerHTML = productsBox
+            })
+            document.getElementById('products').innerHTML = products
         }
     </script>
 </body>
