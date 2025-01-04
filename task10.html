@@ -130,7 +130,6 @@
             { name: "mona", age: 22, gmail: "mona22@gmail.com" },
             { name: "maryam", age: 33, gmail: "maryam33@gmail.com" },
         ]
-
         let user = document.getElementById('user')
         function display() {
             let users = ''
@@ -159,12 +158,9 @@
             }
             display()
         }
-
-
         let userName = document.getElementById('name')
         let userAge = document.getElementById('age')
         let userGmail = document.getElementById('gmail')
-
         function UpdateUser() {
             const taskItem = event.target.closest('tr');
             const taskText = taskItem.querySelector('td').textContent.trim();
@@ -185,8 +181,6 @@
             }
             display()
         }
-
-
         function addUser() {
             userData.push({ name: userName.value, age: userAge.value, gmail: userGmail.value })
             display()
