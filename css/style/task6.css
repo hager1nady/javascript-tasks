@@ -1,76 +1,47 @@
-.container {
-    width: 60%;
-    margin: 50px auto;
-}
-
-@media(max-width:767px) {
-    .container {
-        width: 90%;
-    }
-
-    .container table {
-        width: 100%;
-    }
-}
-
-.container table {
-    width: 100%;
-}
-
-.container div {
+h1 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #777777;
-    font-family: sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.container>div label {
-    display: block;
-    margin-bottom: 20px;
+#productContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+    height: fit-content;
 }
 
-.container>div input {
-    width: 100%;
-    padding: 8px 10px;
-    outline: none;
-    border: 1px solid #eee;
-    background-color: #eeeeee1f;
-    transition: 0.3s;
-    border: 1px solid rgba(100, 148, 237, 0.258);
+.product {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
-.container>div input:hover {
-    background-color: #eee;
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-table {
-    border-spacing: 0;
-    text-align: center;
+.product h3 {
+    font-size: 1.5rem;
+    color: #ff6f61;
+    margin-bottom: 10px;
 }
 
-.respovnsive-table {
-    overflow-x: hidden;
+.product p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #555;
 }
 
-thead th {
-    background-color: #eeeeeebb;
+.product p span {
     font-weight: bold;
-    padding: 15px;
+    color: #333;
 }
-
-table td {
-    padding: 15px;
-}
-
-tbody td {
-    border: 1px solid #eee;
-    transition: var(--main-transition);
-    -webkit-transition: var(--main-transition);
-    -moz-transition: var(--main-transition);
-    -ms-transition: var(--main-transition);
-    -o-transition: var(--main-transition);
-}
-
-tbody tr:hover td {
-    background-color: #fafafa;
-}
-

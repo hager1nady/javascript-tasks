@@ -88,6 +88,12 @@
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
                 </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task11</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="container">
@@ -97,6 +103,7 @@
                 <input type="text" name="tasks" id="tasks" placeholder="Add New Task...">
             </div>
             <button type="submit" onclick="addTask()">Add Task</button>
+            <span id="popup"></span>
             <button type="submit" onclick="sortTask()">Sort Tasks List</button>
             <button type="submit" onclick="reSortTask()">reSort Tasks List</button>
             <div>
@@ -106,13 +113,19 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         let arrList = ['Organize the room', 'Exercise for 30 minutes', 'Read a chapter from a book', 'Create a shopping list', 'Go for a walk', 'Clean your desk or workspace', 'Try a new recipe', 'الخروج في نزهة']
         // add to list
         function addTask() {
             let list = document.getElementById('tasks').value;
-            arrList.push(list)
+            if (list === "") {
+                document.getElementById('popup').innerHTML = "Can't Add Empty Value!!"
+            }
+            else {
+                arrList.push(list)
+
+            }
             displayTask()
         }
         // delete Task
@@ -146,6 +159,7 @@
             document.getElementById('list').innerHTML = listOfTasks
         }
         displayTask()
+
     </script>
 </body>
 

@@ -1,59 +1,64 @@
-.container {
-    width: 60;
-    margin: 50px auto;
-}
-
-@media(max-width:767px) {
-    .container {
-        width: 90%;
-    }
-
-    .container table {
-        width: 100%;
-    }
-}
-
-table {
-    border-spacing: 0;
-    text-align: center;
-}
-
-thead th {
-    background-color: #eeeeeebb;
+h1 {
+    font-size: 2.5rem;
     font-weight: bold;
-    padding: 15px;
+    color: #6cecff;
+    margin-bottom: 20px;
 }
 
-table td {
-    padding: 15px;
+#libraryContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-tbody td {
-    border: 1px solid #eee;
-    transition: var(--main-transition);
-    -webkit-transition: var(--main-transition);
-    -moz-transition: var(--main-transition);
-    -ms-transition: var(--main-transition);
-    -o-transition: var(--main-transition);
-}
-
-tbody tr:hover td {
-    background-color: #fafafa;
-}
-
-input,
-button {
-    border: none;
-    border: 1px solid #eee;
-    transition: var(--main-transition);
-    -webkit-transition: var(--main-transition);
-    -moz-transition: var(--main-transition);
-    -ms-transition: var(--main-transition);
-    -o-transition: var(--main-transition);
-}
-
-button:hover {
-    background-color: #8b8686;
-    color: white;
+.book {
+    background: #396d70;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
     cursor: pointer;
+    height: fit-content;
+}
+
+.book:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.book h3 {
+    font-size: 1.5rem;
+    color: #6cecff;
+    margin-bottom: 10px;
+}
+
+.book p {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 5px 0;
+}
+
+#totalPages {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #6cecff;
+    text-shadow: 0 0 10px #6cecff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .book {
+        padding: 15px;
+    }
 }

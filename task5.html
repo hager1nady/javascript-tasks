@@ -86,6 +86,12 @@
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
                 </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task11</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="container">
@@ -108,16 +114,22 @@
         </div>
     </div>
     <script>
-        let products = ["Iphone", "realmeC53", "OppoF19", "SamsungS22", "Infinix", "Nokia", "Lava", "Vivo"];
-        let prices = [1200, 1400, 200, 400, 30000, 5000, 60000, 20000, 4000];
+        let products = [
+            { name: "Iphone", price: 30000 },
+            { name: "realmeC53", price: 20000 },
+            { name: "OppoF19", price: 40000 },
+            { name: "SamsungS22", price: 50000 },
+            { name: "Infinix", price: 60000 },
+        ]
+        //object usage
         let productId = document.getElementById('product')
         let productsBox = '';
         function displayProducts() {
             for (var i = 0; i < products.length; i++) {
                 productsBox += `
                         <tr>
-                            <td>${products[i]}</td>
-                            <td>${prices[i]}</td>
+                            <td>${products[i].name}</td>
+                            <td>${products[i].price}</td>
                         </tr>
             `
             }
@@ -140,20 +152,20 @@
             productId.innerHTML = productsBox
         }
         function search() {
-            productsBox = '';
-            let letterId = document.getElementById('fLetter').value
+            productsBox = ''
+            let fLetter = document.getElementById('fLetter')
             for (var i = 0; i < products.length; i++) {
-                if (products[i].charAt(0).toLowerCase() === letterId.toLowerCase()) {
-                    console.log('true');
+                if (products[i].name.charAt(0).toLowerCase() === fLetter.value.toLowerCase()) {
                     productsBox += `
                         <tr>
-                            <td>${products[i]}</td>
-                            <td>${prices[i]}</td>
+                            <td>${products[i].name}</td>
+                            <td>${products[i].price}</td>
                         </tr>
             `
                 }
             }
             productId.innerHTML = productsBox
+
         }
     </script>
 </body>

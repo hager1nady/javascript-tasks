@@ -86,6 +86,12 @@
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
                 </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
+                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task11</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="container">
@@ -103,31 +109,34 @@
             <input type="submit" value="Multiplication" onclick="mulNumbers()">
             <h1 id="number"></h1>
         </div>
+
+
     </div>
+
 
     <script>
         // Addition Numbers
         function addNumbers() {
-            const numberOne = Number(document.getElementById('number_one').value);
-            const numberTow = Number(document.getElementById('number_tow').value);
-            if (numberOne && numberTow !== NaN) {
-                const result = Math.round(numberOne + numberTow)
-                document.getElementById('number').innerHTML = `The Result Is ${result}`;
+            const numberOne = document.getElementById('number_one').value;
+            const numberTow = document.getElementById('number_tow').value;
+            if (isNaN(numberOne + numberTow)) {
+                document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
             }
             else {
-                document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
+                const result = Math.round(+numberOne + +numberTow)
+                document.getElementById('number').innerHTML = `The Result Is ${result}`;
             }
         }
         // Subtraction Numbers 
         function subNumbers() {
             const numberOne = Number(document.getElementById('number_one').value);
             const numberTow = Number(document.getElementById('number_tow').value);
-            if (numberOne && numberTow !== NaN) {
-                const result = Math.round(numberOne - numberTow);
-                document.getElementById('number').innerHTML = `The Result Is ${result}`;
+            if (isNaN(numberOne + numberTow)) {
+                document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
             }
             else {
-                document.getElementById('number').innerHTML = `Please Enter Only Numbers`;
+                const result = Math.round(numberOne - numberTow);
+                document.getElementById('number').innerHTML = `The Result Is ${result}`;
             }
         }
         // Division Numbers

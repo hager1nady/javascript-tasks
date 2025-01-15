@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task7.css">
+    <link rel="stylesheet" href="css/style/task1.css">
 </head>
 
 <body>
@@ -27,134 +27,113 @@
             <h3 class="p-relative txt-c">Js-tasks</h3>
             <ul>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
-                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task1</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
-                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task2</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
-                        <i class="fa-solid fa-user fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task3</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
-                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task4</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
-                        <i class="fa-brands fa-discourse fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task5</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
-                        <i class="fa-solid fa-user-group fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task6</span>
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
-                        <i class="fa-solid fa-file fa-fw"></i>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task7</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task8</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task9</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task10.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task11</span>
                     </a>
                 </li>
             </ul>
         </div>
         <div class="container">
-            <table class="respovnsive-table">
-                <thead>
-                    <th>ProductName</th>
-                    <th>ProductPrice</th>
-                    <th>ProductCatgory</th>
-                    <th>FinalPrice</th>
-                </thead>
-                <tbody id="products">
-
-                </tbody>
-            </table>
-            <div class="mt-40">
-                <input id="getPrice" type="text" class="d-block mt-10 w-full p-10 b-none mb-10"
-                    placeholder="Enter Your Product Price Search...">
-                <button class="btn-shape w-full mt-10" onclick="lessProduct()">Search By Product Price</button>
+            <div>
+                <label for="url">Url :</label>
+                <input type="text" id="url" placeholder="Please Enter Your Url..">
             </div>
+            <div>
+                <h1 class="mb-5">Clock Action</h1>
+                <div class="clock" id="clock">00:00:00</div>
+                <div class="buttons">
+                    <button onclick="startClock()" class="btn-shape">Start Clock</button>
+                    <button onclick="stopClock()" class="btn-shape">Stop Clock</button>
+                    <button id="btn" onclick="goToURL()" class="btn-shape">Go To URL</button>
+                </div>
+            </div>
+
         </div>
     </div>
     <script>
-        let productsList = [
-            { productName: "iphone", productPrice: 29000, productCategory: "mobile" },
-            { productName: "samsung", productPrice: 39000, productCategory: "mobile" },
-            { productName: "realme", productPrice: 4000, productCategory: "mobile" },
-            { productName: "redmi", productPrice: 9000, productCategory: "mobile" },
-            { productName: "oppo", productPrice: 7000, productCategory: "mobile" },
-        ]
-        let tax_rate = 0.14;
-        function calculateTotal(price) {
-            return (price + price * tax_rate).toFixed(2)
+        let interval;
+        function startClock() {
+            if (interval) clearInterval(interval);
+            interval = setInterval(() => {
+                const now = new Date();
+                const time = now.toLocaleTimeString();
+                document.getElementById("clock").textContent = time;
+            }, 1000);
         }
-        function displayProducts() {
-            let products = '';
-            let product = productsList.map((ele) => {
-                let finalPrice = calculateTotal(ele.productPrice)
-                products += `
-                    <tr>
-                        <td>${ele.productName}</td>
-                        <td>${ele.productPrice}</td>
-                        <td>${ele.productCategory}</td>
-                        <td>${finalPrice}</td>
-                    </tr>
-             `
-            }
-            )
-            document.getElementById('products').innerHTML = products
+        ///////////////////////////////////////////////////////
+        function stopClock() {
+            clearInterval(interval);
+            interval = null;
         }
-        displayProducts();
-        // Search By Product Price
-        function lessProduct() {
-            let products = '';
-            let product = productsList.filter((ele) => ele.productPrice < document.getElementById('getPrice').value).map((ele) => {
-                return products += `
-                    <tr>
-                        <td>${ele.productName}</td>
-                        <td>${ele.productPrice}</td>
-                        <td>${ele.productPrice}</td>
-                    </tr>
-            `
+        ////////////////////////////////////////////////////////////
+        function goToURL() {
+            let url = document.getElementById('url')
+            let btn = document.getElementById('btn')
+            let teavel = btn.addEventListener("click", function () {
+                window.confirm("Are You Sure You Leave This Page")
+                window.location.href = url.value
             })
-            document.getElementById('products').innerHTML = products
         }
     </script>
 </body>

@@ -86,10 +86,36 @@
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
                 </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
+                        <span class="fs-14 hide-mobile">Task11</span>
+                    </a>
+                </li>
             </ul>
         </div>
-        <div class="content">
 
+        <div class="container">
+            <table>
+                <thead>
+                    <th>ProductName</th>
+                    <th>ProductPrice</th>
+                    <th>ProductDescription</th>
+                    <th>ProductRemove</th>
+                    <th>UpdateProduct</th>
+                </thead>
+                <tbody id="produceDetails">
+
+                </tbody>
+            </table>
+            <div class="mt-20">
+                <label for="name" class="mb-10 d-block">Producr Name :</label>
+                <input type="text" id="name" placeholder="Plaease Enter Product Name">
+            </div>
+            <div>
+                <label for="price" class="mb-10 d-block">Producr Price :</label>
+                <input type="text" id="price" placeholder="Plaease Enter Product Price">
+            </div>
         </div>
     </div>
 
@@ -102,176 +128,52 @@
             { name: "samsungA53", price: 1000, description: "good" },
             { name: "realmeC53", price: 8000, description: "good" },
         ]
+        let produceDetails = document.getElementById('produceDetails')
         function displayProducts() {
-            const existingTable = document.querySelector(".container");
-            if (existingTable) {
-                existingTable.remove();
-            }
-            // creaye table + thead + th
-            let products = document.createElement("table")
-            let tHead = document.createElement("thead")
-            let thName = document.createElement("th")
-            let thPrice = document.createElement("th")
-            let thDesc = document.createElement("th")
-            let thRemove = document.createElement("th")
-            let thEdit = document.createElement("th")
-            let inputs = document.createElement("div")
-            let inputContainer = document.createElement("div")
-            inputContainer.setAttribute("id", "editInputsContainer");
-
-
-            // create inputs
-            let inputName = document.createElement("input")
-            let labelName = document.createElement("label")
-            let labelNameText = document.createTextNode("product name :")
-            let inputPrice = document.createElement("input")
-            let labelPrice = document.createElement("label")
-            let labePeicelText = document.createTextNode("product price :")
-            let inputDesc = document.createElement("input")
-            let labelDesc = document.createElement("label")
-            let labeDescText = document.createTextNode("product Description :")
-
-
-            labelName.appendChild(labelNameText)
-            labelPrice.appendChild(labePeicelText)
-            labelDesc.appendChild(labeDescText)
-            inputContainer.appendChild(labelName)
-            inputContainer.appendChild(inputName)
-            inputContainer.appendChild(labelPrice)
-            inputContainer.appendChild(inputPrice)
-            inputContainer.appendChild(labelDesc)
-            inputContainer.appendChild(inputDesc)
-
-            inputName.setAttribute("id", "productName")
-            labelName.setAttribute("for", "productName")
-            labelPrice.setAttribute("for", "productPrice")
-            inputPrice.setAttribute("id", "productPrice")
-            inputDesc.setAttribute("id", "productDesc")
-            labelDesc.setAttribute("for", "productDesc")
-            inputs.appendChild(inputContainer)
-
-            inputName.className = "d-block"
-            labelName.className = "d-block"
-            inputPrice.className = "d-block"
-            labelPrice.className = "d-block"
-            inputDesc.className = "d-block"
-
-            // add class to table
-            products.className = "container"
-            // add text to thead th
-            let thNameText = document.createTextNode("Product Name")
-            let thPriceText = document.createTextNode("Product Price")
-            let thDescText = document.createTextNode("Product Description")
-            let thRemoveText = document.createTextNode("Product Remove")
-            let thEditText = document.createTextNode("Product Edit")
+            let products = ''
             for (var i = 0; i < productslist.length; i++) {
-                // creaye table + tbody + tr + td
-                let tbody = document.createElement("tbody")
-                let tr = document.createElement("tr")
-                let tdName = document.createElement("td")
-                let tdPrice = document.createElement("td")
-                let tdDesc = document.createElement("td")
-                let tdRemove = document.createElement("td")
-                let tdEdit = document.createElement("td")
-                // add text to tbody tr td
-                let tdTextName = document.createTextNode(`${productslist[i].name}`)
-                let tdTextPrice = document.createTextNode(`${productslist[i].price}`)
-                let tdTextDescription = document.createTextNode(`${productslist[i].description}`)
-                let tdButton = document.createElement("button")
-                let tdButtonEdit = document.createElement("button")
-                tdEdit.className = "update"
-                // create text button
-                let buttonText = document.createTextNode("Remove")
-                let EditText = document.createTextNode("Edit")
-                tdButton.appendChild(buttonText)
-                tdButtonEdit.appendChild(EditText)
-                // add class btn-shape to button
-                tdButton.className = "btn-shape"
-                tdButtonEdit.className = "btn-shape"
-                // add attribute to utton
-                tdButton.setAttribute("onclick", "removeProduct()")
-                tdButtonEdit.setAttribute("onclick", "editProduct()")
-                // append thead to table
-                products.appendChild(tHead)
-                // append th to thead
-                tHead.appendChild(thName)
-                tHead.appendChild(thPrice)
-                tHead.appendChild(thDesc)
-                tHead.appendChild(thRemove)
-                tHead.appendChild(thEdit)
-                // append thNameText to th
-                thName.appendChild(thNameText)
-                thPrice.appendChild(thPriceText)
-                thDesc.appendChild(thDescText)
-                thRemove.appendChild(thRemoveText)
-                thEdit.appendChild(thEditText)
-                // append tbody to table
-                products.appendChild(tbody)
-                // append tr to tbody
-                tbody.appendChild(tr)
-                // add id to tr
-                tr.setAttribute("id", "product")
-                // append td to tr
-                tr.appendChild(tdName)
-                tr.appendChild(tdPrice)
-                tr.appendChild(tdDesc)
-                tr.appendChild(tdRemove)
-                tr.appendChild(tdEdit)
-                // append text to td
-                tdName.appendChild(tdTextName)
-                tdPrice.appendChild(tdTextPrice)
-                tdDesc.appendChild(tdTextDescription)
-                tdRemove.appendChild(tdButton)
-                tdEdit.appendChild(tdButtonEdit)
+                products += `
+                    <tr>
+                        <td>${productslist[i].name}</td>
+                        <td>${productslist[i].price}</td>
+                        <td>${productslist[i].description}</td>
+                        <td><button class="btn-shape" onclick="removeProduct()">Remove</button></td>   
+                        <td class="update"><button class="btn-shape"  onclick="updateProduct()">Update</button></td>   
+                    </tr>
+               `
             }
-            const pageElement = document.querySelector('.page .content');
-            pageElement.appendChild(products);
-            const inputElements = document.querySelector('.page .content')
-            inputElements.appendChild(inputs)
+            produceDetails.innerHTML = products
         }
         displayProducts()
 
         function removeProduct() {
-            let productsArray = ''
-            const taskItem = event.target.closest('tr');
-            const taskText = taskItem.querySelector('td').textContent.trim();
-            const index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase());
-            if (index > -1) {
-                productslist.splice(index, 1);
-            }
+            let taskItem = event.target.closest('tr')
+            const taskText = taskItem.querySelector('td').textContent.trim()
+            let index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase())
+            productslist.splice(index, 1)
             displayProducts()
         }
 
-        function editProduct() {
-            let productName = document.getElementById('productName')
-            let productPrice = document.getElementById('productPrice')
-            let productDescription = document.getElementById('productDesc')
-            let existingInputs = document.getElementById("editInputsContainer");
-            if (existingInputs) {
-                existingInputs.remove();
-            }
-            const taskItem = event.target.closest('tr');
-            const taskText = taskItem.querySelector('td').textContent.trim();
-            const index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase());
-
-            if (index > -1) {
-                if (productName && productName.value.trim() !== "") {
-                    productslist[index].name = productName.value.trim();
-                }
-                if (productPrice && productPrice.value.trim() !== "") {
-                    productslist[index].price = parseFloat(productPrice.value.trim());
-                }
-                if (productDescription && productDescription.value.trim() !== "") {
-                    productslist[index].description = productDescription.value.trim();
-                }
-                console.log(productslist);
-            }
+        function updateProduct() {
+            let productName = document.getElementById('name').value
+            let productPrice = document.getElementById('price').value
+            let taskItem = event.target.closest('tr')
+            console.log(taskItem);
+            const taskText = taskItem.querySelector('td').textContent.trim()
+            console.log(taskText);
+            let index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase())
+            let products = ''
+            products += `
+                    <tr>
+                        <td>${productslist[index].name = productName || productslist[index].name}</td>
+                        <td>${productslist[index].price = productPrice || productslist[index].price}</td>
+                        <td>${productslist[index].description}</td>
+                        <td><button onclick="removeProduct()">Remove</button></td>   
+                    </tr>
+               `
+            produceDetails.innerHTML = products
             displayProducts()
         }
-
-
-
-
 
     </script>
 </body>
