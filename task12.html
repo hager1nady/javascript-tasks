@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task9.css">
+    <link rel="stylesheet" href="css/style/task12.css">
 </head>
+
 
 <body>
     <div class="page d-flex">
@@ -75,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task9.html">
                         <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task9</span>
                     </a>
@@ -88,98 +89,48 @@
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
-                        <i class="fa-solid fa-check fa-fw"></i>
+                        <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task11</span>
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
                         <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task12</span>
                     </a>
                 </li>
             </ul>
         </div>
-
         <div class="container">
-            <table>
-                <thead>
-                    <th>ProductName</th>
-                    <th>ProductPrice</th>
-                    <th>ProductDescription</th>
-                    <th>ProductRemove</th>
-                    <th>UpdateProduct</th>
-                </thead>
-                <tbody id="produceDetails">
-
-                </tbody>
-            </table>
-            <div class="mt-20">
-                <label for="name" class="mb-10 d-block">Producr Name :</label>
-                <input type="text" id="name" placeholder="Plaease Enter Product Name">
-            </div>
-            <div>
-                <label for="price" class="mb-10 d-block">Producr Price :</label>
-                <input type="text" id="price" placeholder="Plaease Enter Product Price">
-            </div>
+            <button onclick="changeColor('red')">Red</button>
+            <button onclick="changeColor('green')">Green</button>
+            <button onclick="changeColor('blue')">Blue</button>
+            <button onclick="defaultColor()">Default Color</button>
+            <button onclick="printPage()">Print</button>
+            <button onclick="goBack()">To Go Back</button>
         </div>
     </div>
 
     <script>
-        let productslist = [
-            { name: "iphone", price: 30000, description: "good" },
-            { name: "samsung", price: 1000, description: "good" },
-            { name: "realme", price: 8000, description: "good" },
-            { name: "iphone13", price: 30000, description: "good" },
-            { name: "samsungA53", price: 1000, description: "good" },
-            { name: "realmeC53", price: 8000, description: "good" },
-        ]
-        let produceDetails = document.getElementById('produceDetails')
-        function displayProducts() {
-            let products = ''
-            for (var i = 0; i < productslist.length; i++) {
-                products += `
-                    <tr>
-                        <td>${productslist[i].name}</td>
-                        <td>${productslist[i].price}</td>
-                        <td>${productslist[i].description}</td>
-                        <td><button class="btn-shape" onclick="removeProduct()">Remove</button></td>   
-                        <td class="update"><button class="btn-shape"  onclick="updateProduct()">Update</button></td>   
-                    </tr>
-               `
-            }
-            produceDetails.innerHTML = products
+        function changeColor(color) {
+            document.querySelector('.page').style.backgroundColor = color
+            localStorage.setItem("backgroundColor", color)
         }
-        displayProducts()
-
-        function removeProduct() {
-            let taskItem = event.target.closest('tr')
-            const taskText = taskItem.querySelector('td').textContent.trim()
-            let index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase())
-            productslist.splice(index, 1)
-            displayProducts()
+        function defaultColor() {
+            document.querySelector('.page').style.backgroundColor = "white"
+            localStorage.removeItem("backgroundColor")
+        }
+        let localColor = localStorage.getItem("backgroundColor");
+        if (localColor) {
+            document.querySelector('.page').style.backgroundColor = localColor
+        }
+        function printPage() {
+            window.print()
+        }
+        function goBack(){
+            window.history.back()
         }
 
-        function updateProduct() {
-            let productName = document.getElementById('name').value
-            let productPrice = document.getElementById('price').value
-            let taskItem = event.target.closest('tr')
-            console.log(taskItem);
-            const taskText = taskItem.querySelector('td').textContent.trim()
-            console.log(taskText);
-            let index = productslist.findIndex(product => product.name.toLowerCase() === taskText.toLowerCase())
-            let products = ''
-            products += `
-                    <tr>
-                        <td>${productslist[index].name = productName || productslist[index].name}</td>
-                        <td>${productslist[index].price = productPrice || productslist[index].price}</td>
-                        <td>${productslist[index].description}</td>
-                        <td><button onclick="removeProduct()">Remove</button></td>   
-                    </tr>
-               `
-            produceDetails.innerHTML = products
-            displayProducts()
-        }
 
     </script>
 </body>
