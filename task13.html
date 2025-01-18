@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>task-js-4</title>
+    <title>Task-js-3</title>
     <link rel="styles+heet" href="css/helpers/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/helpers/reset.css">
@@ -18,8 +18,7 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task4.css">
-    <link rel="stylesheet" href="css/mediaquery/task4-media.css">
+    <link rel="stylesheet" href="css/style/task13.css">
 </head>
 
 <body>
@@ -46,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task4</span>
                     </a>
@@ -60,7 +59,6 @@
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
                         <i class="fa-solid fa-check fa-fw"></i>
-
                         <span class="fs-14 hide-mobile">Task6</span>
                     </a>
                 </li>
@@ -90,18 +88,18 @@
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task11.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task11</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task12</span>
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task13.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task13.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task13</span>
                     </a>
@@ -109,68 +107,69 @@
             </ul>
         </div>
         <div class="container">
-            <h1>To Do List :</h1>
             <div>
-                <label for="tasks">Add Task :</label>
-                <input type="text" name="tasks" id="tasks" placeholder="Add New Task...">
+                <input id="name" type="text" placeholder="Enter Your Name">
+                <input id="age" type="number" placeholder="Enter Your Age">
+                <input id="profission" type="text" placeholder="Enter Your Proffission">
+                <input id="city" type="text" placeholder="Enter Your city">
+                <input id="number" type="text" placeholder="Enter Your number">
             </div>
-            <button type="submit" onclick="addTask()">Add Task</button>
-            <span id="popup"></span>
-            <button type="submit" onclick="sortTask()">Sort Tasks List</button>
-            <button type="submit" onclick="reSortTask()">reSort Tasks List</button>
             <div>
-                <h3>List Of Tasks :</h3>
-                <ul id="list">
-                </ul>
+                <input id="hoppy" type="text" placeholder="Enter Your favorite Hoppy">
+            </div>
+            <button id="click">click</button>
+            <div id="user">
+                <h1>User Data</h1>
             </div>
         </div>
     </div>
-
     <script>
-        let arrList = ['Organize the room', 'Exercise for 30 minutes', 'Read a chapter from a book', 'Create a shopping list', 'Go for a walk', 'Clean your desk or workspace', 'Try a new recipe', 'الخروج في نزهة']
-        // add to list
-        function addTask() {
-            let list = document.getElementById('tasks').value;
-            if (list === "") {
-                document.getElementById('popup').innerHTML = "Can't Add Empty Value!!"
-            }
-            else {
-                arrList.push(list)
+        let name = document.getElementById("name")
+        let age = document.getElementById("age")
+        let profission = document.getElementById("profission")
+        let city = document.getElementById("city")
+        let number = document.getElementById("number")
+        let hoppy = document.getElementById("hoppy")
+        let click = document.getElementById("click")
 
-            }
-            displayTask()
-        }
-        // delete Task
-        function deleteTask() {
-            const taskItem = event.target.closest('li');
-            const taskText = taskItem.textContent.replace('delete', '').trim();
-            const index = arrList.indexOf(taskText);
-            if (index > -1) {
-                arrList.splice(index, 1);
-            }
-            displayTask();
 
+
+        let user;
+        click.addEventListener("click", function () {
+            user = {
+                name: name.value,
+                age: age.value,
+                profession: profission.value,
+                address: {
+                    city: city.value,
+                    number: number.value
+                },
+                lang: hoppy.value
+            };
+            userDetails(user)
+        })
+
+        function userDetails({ name, age, profession, address: { city, number }, lang }) {
+            document.getElementById("user").innerHTML += `
+                <p>Your Name Is ${name}</p>
+                <p>Your Age Is ${age}</p>
+                <p>Your Proffession Is ${profession}</p>
+                <p> Your City Is ${city} Your Number Is ${number}</p>
+                <p>Your Favorite Hoppy is ${lang}</p>
+            `
         }
-        // sorting task
-        function sortTask() {
-            arrList.sort()
-            displayTask()
-        }
-        // sorting task
-        function reSortTask() {
-            displayTask()
-        }
-        // display list
-        function displayTask() {
-            let listOfTasks = '';
-            for (var i = 0; i < arrList.length; i++) {
-                listOfTasks += `
-                <li>${arrList[i]} <button type="submit" onclick="deleteTask()">delete</button></li>
-                `
-            }
-            document.getElementById('list').innerHTML = listOfTasks
-        }
-        displayTask()
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 </body>
