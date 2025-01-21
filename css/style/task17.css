@@ -1,0 +1,26 @@
+.container {
+    width: 600px;
+}
+
+.container>div {
+    background-color: #eee;
+}
+
+.container button {
+    cursor: pointer;
+    border: 1px solid orange;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+.container button:hover {
+    background-color: rgba(255, 166, 0, 0.5);
+}
+
+.container input {
+    border: none;
+    
+}
