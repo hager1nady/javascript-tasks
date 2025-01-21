@@ -1,0 +1,20 @@
+.container{
+    width: 600px;
+    margin: 50px auto;
+}
+
+input,button{
+    border: none;
+}
+button {
+    cursor: pointer;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+}
+
+button:hover{
+    background-color: rgba(8, 207, 8, 0.563);
+}

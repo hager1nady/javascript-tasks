@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>task1-js</title>
+    <title>Task-js-3</title>
     <link rel="styles+heet" href="css/helpers/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/helpers/reset.css">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task10.css">
+    <link rel="stylesheet" href="css/style/task15.css">
 </head>
 
 <body>
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task10.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task10.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task10</span>
                     </a>
@@ -94,7 +94,7 @@
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task12</span>
                     </a>
                 </li>
@@ -111,7 +111,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task15.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task15.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task15</span>
                     </a>
@@ -125,97 +125,50 @@
             </ul>
         </div>
         <div class="container">
-            <table>
-                <thead>
-                    <th>UserName</th>
-                    <th>UserAge</th>
-                    <th>UserGmail</th>
-                    <th>Remove</th>
-                    <th>Update</th>
-                </thead>
-                <tbody id="user">
-
-                </tbody>
-            </table>
-            <div class="mt-20">
-                <label for="name" class="d-block mb-5">UserName:</label>
-                <input type="text" id="name" class="mb-10 p-10 w-full" placeholder="Enter UserName">
-            </div>
-            <div>
-                <label for="age" class="d-block mb-5">UserAge:</label>
-                <input type="number" id="age" class="mb-10 p-10 w-full" placeholder="Enter UserAge">
-            </div>
-            <div>
-                <label for="gmail" class="d-block mb-5">UserGmail:</label>
-                <input type="text" id="gmail" class="mb-10 p-10 w-full" placeholder="Enter UserGmail">
-            </div>
-            <input type="submit" class="btn-shape w-full" onclick="addUser()" value="addUser">
+            <input id="userName" class="d-block w-full p-10" type="text" placeholder="Please Enter Your Name">
+            <h2 id="showMessage"></h2>
+            <button class="w-full p-10 bg-green mt-10 bdr-none" onclick="displayMessage()">Enter</button>
         </div>
     </div>
     <script>
-        let userData = [
-            { name: "hager", age: 23, gmail: "hajrnady24@gmail.com" },
-            { name: "mostafa", age: 29, gmail: "mostafa23@gmail.com" },
-            { name: "ali", age: 24, gmail: "ali98@gmail.com" },
-            { name: "ahmed", age: 27, gmail: "ahmed27@gmail.com" },
-            { name: "mona", age: 22, gmail: "mona22@gmail.com" },
-            { name: "maryam", age: 33, gmail: "maryam33@gmail.com" },
-        ]
-        let user = document.getElementById('user')
-        function display() {
-            let users = ''
-            for (var i = 0; i < userData.length; i++) {
-                users += `
-                    <tr>
-                        <td>${userData[i].name}</td>
-                        <td>${userData[i].age}</td>
-                        <td>${userData[i].gmail}</td>
-                        <td><button name="remove" class="btn-shape" onclick="removeUser()">Remove</button></td>
-                        <td><button name="update" class="btn-shape" onclick="UpdateUser()">Update</button></td>
 
-                    </tr>
-            `
-            }
-            document.getElementById('user').innerHTML = users
-        }
-        display()
+        let allNames = ["hag*er", "ham$ada", "al#i", "mo  st afa", "oSa ma", "Ahm&&&&&&ed", "he***nd"]
+        let cleanNames = [...allNames.map((name) => {
+            return name.replace(/[^a-zA-Z\s]/g, '').replace(/\s+/g, ' ').trim()
+        })]
+        console.log(allNames);
+        console.log(cleanNames);
 
-        function removeUser() {
-            const taskItem = event.target.closest('tr');
-            const taskText = taskItem.querySelector('td').textContent.trim();
-            const index = userData.findIndex(user => user.name.toLowerCase() === taskText.toLowerCase());
-            if (index > -1) {
-                userData.splice(index, 1);
+
+
+        let userName = document.getElementById('userName')
+        let showName = document.getElementById('showMessage')
+        let nameRegex = /^[a-zA-Z]+$/
+        function displayMessage() {
+            console.log(userName.value);
+            if (!userName.value) {
+                showName.innerHTML = `Please Enter Your Name`;
+                showName.style.color = "red";
             }
-            display()
-        }
-        let userName = document.getElementById('name')
-        let userAge = document.getElementById('age')
-        let userGmail = document.getElementById('gmail')
-        function UpdateUser() {
-            const taskItem = event.target.closest('tr');
-            const taskText = taskItem.querySelector('td').textContent.trim();
-            const index = userData.findIndex(user => user.name.toLowerCase() === taskText.toLowerCase());
-            if (index > -1) {
-                console.log(userData[index].name);
-                userData[index].age = userAge.value.trim()
-                userData[index].gmail = userGmail.value.trim()
-                if (userName && userName.value.trim() !== "") {
-                    userData[index].name = userName.value.trim()
-                }
-                if (userAge && userAge.value.trim() !== "") {
-                    userData[index].age = userAge.value.trim()
-                }
-                if (userGmail && userGmail.value.trim() !== "") {
-                    userData[index].gmail = userGmail.value.trim()
-                }
+            else if (userName.value.trim().match(nameRegex)) {
+                showName.innerHTML = `User Name Is Correect ${userName.value}`;
+                showName.style.color = "green";
+            } else {
+                showName.innerHTML = `User Name Is Not Correect`;
+                showName.style.color = "red";
             }
-            display()
         }
-        function addUser() {
-            userData.push({ name: userName.value, age: userAge.value, gmail: userGmail.value })
-            display()
-        }
+
+
+
+
+
+
+
+
+
+
+
 
 
     </script>

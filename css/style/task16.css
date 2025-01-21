@@ -1,0 +1,14 @@
+input[type="submit"] {
+    cursor: pointer;
+    transition: var(--main-transition);
+    -webkit-transition: var(--main-transition);
+    -moz-transition: var(--main-transition);
+    -ms-transition: var(--main-transition);
+    -o-transition: var(--main-transition);
+    color: white;
+    font-size: 18px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(8, 203, 8);
+}
