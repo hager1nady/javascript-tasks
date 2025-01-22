@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>task1-js</title>
+    <title>Task-js-3</title>
     <link rel="styles+heet" href="css/helpers/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/helpers/reset.css">
@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task6.css">
+    <link rel="stylesheet" href="css/style/task17.css">
+
 </head>
 
 <body>
@@ -27,44 +28,43 @@
             <h3 class="p-relative txt-c">Js-tasks</h3>
             <ul>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
-                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task1</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
-                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task2</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
-                        <i class="fa-solid fa-user fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task3</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
-                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task4</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
-                        <i class="fa-brands fa-discourse fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task5</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
-                        <i class="fa-solid fa-user-group fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task6</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
-
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task7</span>
                     </a>
@@ -95,7 +95,7 @@
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task12</span>
                     </a>
                 </li>
@@ -137,68 +137,54 @@
                 </li>
             </ul>
         </div>
-        <!-- <div class="container">
-            <div>
-                <div>
-                    <label for="productName">productName :</label>
-                    <input type="text" name="product" id="productName" placeholder="productName">
-                </div>
-                <div>
-                    <label for="productPrice">productPrice :</label>
-                    <input type="text" name="price" id="productPrice" placeholder="productPrice">
-                </div>
-                <button class="btn-shape"
-                    onclick="displayProducts(document.getElementById('productName').value)">addProduct</button>
+        <div class="container mt-40">
+            <div id="bookDetails" class="p-10 mb-30 txt-c">
             </div>
-            <table>
-                <thead>
-                    <th>productName</th>
-                    <th>productPrice</th>
-                </thead>
-                <tbody id="product">
-
-                </tbody>
-            </table>
-        </div> -->
-        <div class="container" id="productContainer">
-
+            <div id="ebookDetails" class="p-10 mt-40 txt-c">
+            </div>
         </div>
     </div>
+
     <script>
-        ///////////////////////////////////
-        const products = [
-            { name: "منتج 1", price: 20000 },
-            { name: "منتج 2", price: 30000 },
-            { name: "منتج 3", price: 40000 },
-            { name: "منتج 4", price: 80000 },
-        ]
+        class Book {
+            constructor(title, author, pages) {
+                this.t = title;
+                this.o = author;
+                this.p = pages;
+            }
+            displayDetailsBook() {
+                return document.getElementById("bookDetails").innerHTML = `
+                    <p class="container mb-5">عنوان الكتاب هو : ${this.t}</p>
+                    <p class="container mb-5">مؤلف الكتاب هو : ${this.o}</p>
+                    <p class="container mb-5">عدد صفحات الكتاب هي : ${this.p}</p>
+                    <p class="container mb-5">${this.thanks()}</p>
+                `
+            }
+        }
+        Book.prototype.thanks = function () {
+            return `"شكرًا على قراءة كتابنا!".`
+        }
+        let BookOne = new Book("رحلة إلى المستقبل", "أحمد خالد توفيق", 300)
+        console.log(BookOne.displayDetailsBook());
 
-        let tax_rate = 0.14;
-        // function to calculate total price
-        function calculateTotal(price) {
-            return (price + price * 0.14)
+        class Ebook extends Book {
+            constructor(title, author, pages, fileSize) {
+                super(title, author, pages);
+                this.f = fileSize;
+            }
+            showMsg() {
+                return document.getElementById("ebookDetails").innerHTML = `
+                    <p class="container mb-5">عنوان الكتاب هو : ${this.t}</p>
+                    <p class="container mb-5">مؤلف الكتاب هو : ${this.o}</p>
+                    <p class="container mb-5">عدد صفحات الكتاب هي : ${this.p}</p>
+                    <p class="container mb-5"> هذا الكتاب متوفر بصيغة إلكترونية بحجم : ${this.f} ميجابايت</p>
+                    <p class="container mb-5"> ${Book.prototype.thanks()}</p>
+            `
+            }
         }
 
-        // function to display product name and price after tax and befor tax
-        function displayProducts() {
-            let container = document.getElementById("productContainer")
-            products.forEach((product) => {
-                let finalPrice = calculateTotal(product.price)
-                let productDiv = document.createElement('div')
-                productDiv.className = "product"
-                productDiv.innerHTML = `
-                 <h1>${product.name}</h1>
-                 <p>السعر الأصلي: <span>${product.price} جنيه</span></p>
-                <p>السعر بعد الضريبة: <span>${finalPrice} جنيه</span></p>
-              `
-                container.appendChild(productDiv)
-            })
-        }
-        displayProducts()
-
-
-
-
+        let ebookOne = new Ebook("عالم صوفي", "جوستاين غاردر", 500, 5)
+        console.log(ebookOne.showMsg());
 
     </script>
 </body>
