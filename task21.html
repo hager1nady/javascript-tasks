@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>task1-js</title>
+    <title>Task-js-3</title>
     <link rel="styles+heet" href="css/helpers/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/helpers/reset.css">
@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task6.css">
+    <link rel="stylesheet" href="css/style/task21.css">
+
 </head>
 
 <body>
@@ -27,44 +28,43 @@
             <h3 class="p-relative txt-c">Js-tasks</h3>
             <ul>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
-                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="index.html">
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task1</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task2.html">
-                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task2</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task3.html">
-                        <i class="fa-solid fa-user fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task3</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task4.html">
-                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task4</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task5.html">
-                        <i class="fa-brands fa-discourse fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task5</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task6.html">
-                        <i class="fa-solid fa-user-group fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task6</span>
                     </a>
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task7.html">
-
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task7</span>
                     </a>
@@ -95,7 +95,7 @@
                 </li>
                 <li>
                     <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task12.html">
-                        <i class="fa-solid fa-plane fa-fw"></i>
+                        <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task12</span>
                     </a>
                 </li>
@@ -130,7 +130,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task18.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task18.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task18</span>
                     </a>
@@ -148,71 +148,41 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task21.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task21.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task21</span>
                     </a>
                 </li>
             </ul>
         </div>
-        <!-- <div class="container">
-            <div>
-                <div>
-                    <label for="productName">productName :</label>
-                    <input type="text" name="product" id="productName" placeholder="productName">
-                </div>
-                <div>
-                    <label for="productPrice">productPrice :</label>
-                    <input type="text" name="price" id="productPrice" placeholder="productPrice">
-                </div>
-                <button class="btn-shape"
-                    onclick="displayProducts(document.getElementById('productName').value)">addProduct</button>
-            </div>
-            <table>
-                <thead>
-                    <th>productName</th>
-                    <th>productPrice</th>
-                </thead>
-                <tbody id="product">
-
-                </tbody>
-            </table>
-        </div> -->
-        <div class="container" id="productContainer">
-
+        <div class="container mt-40">
+            <form action="" id="userForm" method="get">
+                <h1 class="txt-c mb-20">إرسال البيانات بصيغة JSON</h1>
+                <input class="p-10 w-full rad-6 b-none" id="username" type="text" placeholder="User Name">
+                <input class="p-10 w-full rad-6 b-none mt-20 mb-20" id="useremail" type="text" placeholder="User Email">
+                <input class="p-10 w-full rad-6 b-none" type="submit" value="send">
+            </form>
+            <div id="showuser" class="mt-20 c-green"></div>
         </div>
     </div>
     <script>
-        ///////////////////////////////////
-        const products = [
-            { name: "منتج 1", price: 20000 },
-            { name: "منتج 2", price: 30000 },
-            { name: "منتج 3", price: 40000 },
-            { name: "منتج 4", price: 80000 },
-        ]
 
-        let tax_rate = 0.14;
-        // function to calculate total price
-        function calculateTotal(price) {
-            return (price + price * 0.14)
-        }
+        let userNameInput = document.getElementById("username");
+        let userEmailInput = document.getElementById("useremail");
+        let showuser = document.getElementById("showuser")
 
-        // function to display product name and price after tax and befor tax
-        function displayProducts() {
-            let container = document.getElementById("productContainer")
-            products.forEach((product) => {
-                let finalPrice = calculateTotal(product.price)
-                let productDiv = document.createElement('div')
-                productDiv.className = "product"
-                productDiv.innerHTML = `
-                 <h1>${product.name}</h1>
-                 <p>السعر الأصلي: <span>${product.price} جنيه</span></p>
-                <p>السعر بعد الضريبة: <span>${finalPrice} جنيه</span></p>
-              `
-                container.appendChild(productDiv)
-            })
-        }
-        displayProducts()
+
+        document.getElementById("userForm").addEventListener("submit", function (e) {
+            e.preventDefault()
+            let jsonObject = {
+                name: userNameInput.value,
+                email: userEmailInput.value,
+                id: 101
+            }
+            showuser.textContent = `
+            ${JSON.stringify(jsonObject)}الرد :  تم ارسال البيانات بنجاح 
+            `
+        })
 
 
 
