@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>library</title>
+    <title>Task-js-3</title>
     <link rel="styles+heet" href="css/helpers/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/helpers/reset.css">
@@ -18,10 +18,14 @@
     <link rel="stylesheet" href="css/style/sidebar-section.css">
     <link rel="stylesheet" href="css/mediaquery/sidebar-media.css">
     <link rel="stylesheet" href="css/style/head-section.css">
-    <link rel="stylesheet" href="css/style/task8.css">
+    <link rel="stylesheet" href="css/style/task5.css">
+    <link rel="stylesheet" href="css/style/task22.css">
 </head>
 
 <body>
+
+
+
     <div class="page d-flex">
         <div class="sidebar bg-white p-20 p-relative">
             <h3 class="p-relative txt-c">Js-tasks</h3>
@@ -69,7 +73,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task8.html">
                         <i class="fa-solid fa-plane fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task8</span>
                     </a>
@@ -153,7 +157,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="task22.html">
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="task22.html">
                         <i class="fa-solid fa-check fa-fw"></i>
                         <span class="fs-14 hide-mobile">Task22</span>
                     </a>
@@ -161,53 +165,105 @@
             </ul>
         </div>
         <div class="container">
-            <h1>Our LIBRARY</h1>
-            <div id="libraryContainer"></div>
-            <p id="totalPages"></p>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </thead>
+                <tbody id="tableData">
+
+                </tbody>
+            </table>
         </div>
-        <script>
-            const library = {
-                fiction: [
-                    { title: "Neon Dreams", author: "Author Cyber", pages: 150 },
-                    { title: "Electric Shadows", author: "Author Spark", pages: 200 }
-                ],
-                science: [
-                    { title: "Quantum Realms", author: "Author Quark", pages: 300 },
-                    { title: "Cosmic Light", author: "Author Astro", pages: 250 }
-                ],
+    </div>
+
+    <script>
+        let tableBody = document.getElementById("tableData")
+
+        function getUsers() {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject("❌ فشل تحميل بيانات المستخدمين.");
+                    }
+                }
             };
+        });
+    }
 
-            function calculateTotalPages() {
-                return Object.values(library).flat().reduce((acc, curr) => {
-                    return acc + curr.pages
-                }, 0)
-            }
+        // عرض بيانات المستخدمين في الجدول
+        function displayUsers(users) {
+            users.forEach(user => {
+                let row = document.createElement("tr");
 
-            // display books
-            function displayBooks() {
-                const container = document.getElementById('libraryContainer')
-                Object.entries(library).forEach(([category, books]) => {
-                    const categoryHeader = document.createElement("div")
-                    categoryHeader.innerHTML = `<h2 style="grid-column: span 2; color: #fff; font-size: 1.5rem; text-align: center; text-shadow: 0 0 10px #6cecff;">${category}Books</h2>`
-                    container.appendChild(categoryHeader)
+                row.innerHTML = `
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.address.city}, ${user.address.street}</td>
+                    <td><button class="details-btn" data-id="${user.id}">عرض التفاصيل</button></td>
+                `;
 
-                    books.forEach((book) => {
-                        const bookDiv = document.createElement("div");
-                        bookDiv.className = "book";
-                        bookDiv.innerHTML = `
-                                <h3>${book.title}</h3>
-                                <p>Author: ${book.author}</p>
-                                <p>Pages: ${book.pages}</p>
-                        `
-                        container.appendChild(bookDiv)
-                    })
+                tableBody.appendChild(row);
+            });
+
+            // إضافة Event Listener لجميع أزرار التفاصيل بعد تحميل البيانات
+            document.querySelectorAll(".details-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    let userId = this.getAttribute("data-id");
+                    showDetails(userId);
+                });
+            });
+        }
+
+        // جلب بيانات المستخدم الفردية عند الضغط على زر التفاصيل
+        function getUserDetails(userId) {
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", `https://jsonplaceholder.typicode.com/users/${userId}`);
+                xhr.send();
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(JSON.parse(xhr.responseText));
+                        } else {
+                            reject("❌ حدث خطأ أثناء جلب التفاصيل.");
+                        }
+                    }
+                };
+            });
+        }
+
+        // عرض تفاصيل المستخدم في نافذة Alert
+        function showDetails(userId) {
+            getUserDetails(userId)
+                .then(user => {
+                    alert(`
+                        👤 الاسم: ${user.name}
+                        📧 البريد الإلكتروني: ${user.email}
+                        📞 الهاتف: ${user.phone}
+                        🌍 الموقع: ${user.website}
+                        🏠 العنوان: ${user.address.city}, ${user.address.street}
+                    `);
                 })
-                document.getElementById('totalPages').textContent = ` total pages in library is ${calculateTotalPages()}`
-            }
+                .catch(error => alert(error));
+        }
 
-            displayBooks()
-        </script>
+        // استدعاء الدالة عند تحميل الصفحة
+        getUsers()
+            .then(displayUsers)
+            .catch(error => console.error(error));
+
+    </script>
+
 </body>
-
 
 </html>
